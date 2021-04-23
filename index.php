@@ -14,7 +14,10 @@
     Stampiamo a schermo tutte le partite con questo schema.
     Olimpia Milano - Cantù | 55-60 -->
 
+    <h1 style="color: red;">Snack 1</h1>
+
     <?php
+
         $matchesInSpecificDate = [
             [
                 'host' => [
@@ -66,11 +69,30 @@
             $matchesPrint[$i] = $matchesInSpecificDate[$i]['host']['name'] . ' - ' . $matchesInSpecificDate[$i]['guest']['name'] . ' | ' . $matchesInSpecificDate[$i]['host']['score'] . '-' . $matchesInSpecificDate[$i]['guest']['score'];
             echo '<h2>' . $matchesPrint[$i] . '</h2>';
         };
-?>
+
+    ?>
 
     <!-- Snack 2
     Passare come parametri GET name, mail e age e verificare (cercando i metodi che non conosciamo nella documentazione) che name sia più lungo di 3 caratteri, che mail contenga un punto e una chiocciola e che age sia un numero.
     Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato”. -->
+
+    <h1 style="color: red;">Snack 2</h1>
+
+    <?php
+        
+        $name = $_GET['name'];
+        $mail = $_GET['mail'];
+        $age = $_GET['age'];
+
+        if (strlen($name) > 3 && strpos($mail,'.') !== false && strpos($mail,'@') !== false && ctype_digit($age)) {
+            echo '<h1>Accesso riuscito</h1>';
+        }
+        else {
+            echo '<h1>Accesso negato</h1>';
+        };
+
+    ?>
+    
 
 </body>
 </html>
